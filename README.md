@@ -26,7 +26,7 @@ Other Sources: ( cloning )
 
 * Device Tree
   -------------
-```git clone https://github.com/dev4wds/android_device_motorola_woods -b los-14.1 device/motorola/woods ```
+```git clone https://github.com/dev4wds/android_device_motorola_woods -b aicp-12.1 device/motorola/woods ```
 
 * Kernel Source
   ---------------
