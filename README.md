@@ -26,7 +26,7 @@ Other Sources: ( cloning )
 
 * Device Tree
   -------------
-```git clone https://github.com/dev4wds/android_device_motorola_woods -b los-14.1 device/motorola/woods ```
+```git clone https://github.com/dev4wds/android_device_motorola_woods -b aex-7.x device/motorola/woods ```
 
 * Kernel Source
   ---------------
@@ -34,5 +34,5 @@ Other Sources: ( cloning )
 
 * Vendor 
   --------
-```git clone https://github.com/dev4wds/android_vendor_motorola_woods vendor/motorola/woods ```
+```git clone https://github.com/dev4wds/android_vendor_motorola_woods -b aex-7.x vendor/motorola/woods ```
 
