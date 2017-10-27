@@ -1,3 +1,6 @@
+# Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
@@ -92,6 +95,12 @@ PRODUCT_PACKAGES += \
     libtinycompress \
     libtinymix \
     libtinyxml
+    
+PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl \
+    android.hardware.broadcastradio@1.0-impl \
+    android.hardware.soundtrigger@2.0-impl
 
 # WiFi
 PRODUCT_PACKAGES += \
@@ -123,15 +132,48 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    Snap
+    Snap \
+    camera.device@3.2-impl \
+    android.hardware.camera.provider@2.4-impl
 
-## CM14 mtk symbols
+## lineage-15.0 mtk symbols
 PRODUCT_PACKAGES += \
     mtk_symbols
 
+# Lights
+PRODUCT_PACKAGES += \
+    lights.mt6737m \
+    android.hardware.light@2.0-impl
+
+# Display Calibration
+#PRODUCT_PACKAGES += \
+    #libjni_livedisplay
+
+# DRM
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-impl \
+
 # Power
 PRODUCT_PACKAGES += \
+    android.hardware.power@1.0-impl \
     power.mt6737m
+
+# Display
+PRODUCT_PACKAGES += \
+    gralloc.mt6737m \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.memtrack@1.0-impl \
+    hwcomposer.mt6737m \
+    memtrack.mt6737m \
+    libgenlock \
+    libtinyxml
+
+# RenderScript HAL
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0-impl
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	ro.mount.fs=EXT4 \
@@ -158,14 +200,31 @@ ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
 ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
 ADDITIONAL_DEFAULT_PROPERTIES += persist.service.adb.enable=1
 
+# Launcher3
+PRODUCT_PACKAGES += \
+    Launcher3
+
+# WiFi HAL
+PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service
+
+##
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=mtp
 
+# USB HAL
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service
+
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-impl
+
 # Keyhandler package
 PRODUCT_PACKAGES += \
-    com.cyanogenmod.keyhandler
+    com.lineageos.keyhandler
 
-PRODUCT_SYSTEM_SERVER_JARS += com.cyanogenmod.keyhandler
+PRODUCT_SYSTEM_SERVER_JARS += com.lineageos.keyhandler
 
 # Never dexopt the keyhandler
-$(call add-product-dex-preopt-module-config,com.cyanogenmod.keyhandler,disable)
+$(call add-product-dex-preopt-module-config,com.lineageos.keyhandler,disable)
