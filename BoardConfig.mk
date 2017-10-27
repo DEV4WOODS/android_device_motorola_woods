@@ -1,3 +1,6 @@
+#woods path
+DEVICE_PATH := device/motorola/woods
+
 # inherit from the proprietary version
 -include vendor/motorola/woods/BoardConfigVendor.mk
 
@@ -112,9 +115,12 @@ TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 # Audio
 BOARD_USES_MTK_AUDIO := true
 
-# CMHW
-BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS := device/motorola/woods/cmhw
+# LineageHW
+TARGET_TAP_TO_WAKE_NODE := "/sys/android_touch/doubletap2wake"
+BOARD_HARDWARE_CLASS += $(DEVICE_PATH)/lineagehw
+#BOARD_USES_CYANOGEN_HARDWARE := true
+BOARD_USES_LINEAGE_HARDWARE := true
+
 
 # Fix video autoscaling on old OMX decoders
 TARGET_OMX_LEGACY_RESCALING := true
