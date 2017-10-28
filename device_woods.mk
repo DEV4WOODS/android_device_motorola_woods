@@ -205,8 +205,8 @@ PRODUCT_PACKAGES += \
     Launcher3
 
 # WiFi HAL
-PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service
+#PRODUCT_PACKAGES += \
+    #android.hardware.wifi@1.0-service
 
 ##
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
