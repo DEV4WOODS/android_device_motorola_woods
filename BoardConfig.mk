@@ -1,3 +1,6 @@
+#woods path
+DEVICE_PATH := device/motorola/woods
+
 # inherit from the proprietary version
 -include vendor/motorola/woods/BoardConfigVendor.mk
 
@@ -112,9 +115,12 @@ TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 # Audio
 BOARD_USES_MTK_AUDIO := true
 
-# CMHW
-BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS := device/motorola/woods/cmhw
+# LineageHW
+TARGET_TAP_TO_WAKE_NODE := "/sys/android_touch/doubletap2wake"
+BOARD_HARDWARE_CLASS += $(DEVICE_PATH)/lineagehw
+#BOARD_USES_CYANOGEN_HARDWARE := true
+BOARD_USES_LINEAGE_HARDWARE := true
+
 
 # Fix video autoscaling on old OMX decoders
 TARGET_OMX_LEGACY_RESCALING := true
@@ -188,12 +194,12 @@ TARGET_SYSTEM_PROP := device/motorola/woods/system.prop
 TARGET_SPECIFIC_HEADER_PATH := device/motorola/woods/include
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun/file
 
-ifneq ($(FORCE_32_BIT),yes)
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.zygote=zygote32
-else
-PRODUCT_COPY_FILES += system/core/rootdir/init.zygote64_32.rc:root/init.zygote64_32.rc
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.zygote=zygote64_32
-endif
+#ifneq ($(FORCE_32_BIT),yes)
+#PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.zygote=zygote32
+#else
+#PRODUCT_COPY_FILES += system/core/rootdir/init.zygote64_32.rc:root/init.zygote64_32.rc
+#PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.zygote=zygote64_32
+#endif
 
 BOARD_SEPOLICY_DIRS := \
        device/motorola/woods/sepolicy
