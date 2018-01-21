@@ -13,10 +13,8 @@ LOCAL_SRC_FILES := \
     mtk_audio.cpp \
     mtk_fence.cpp \
     mtk_omx.cpp \
+    mtk_cam.cpp \
     mtk_ui.cpp
-
-# only for 64bit libraries
-LOCAL_SRC_FILES_64 := mtk_parcel.cpp
 
 LOCAL_SHARED_LIBRARIES := libbinder liblog libgui libui libicuuc libicui18n libmedia
 LOCAL_MODULE := mtk_symbols
