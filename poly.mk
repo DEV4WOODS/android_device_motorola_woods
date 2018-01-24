@@ -3,8 +3,8 @@
 # Release name
 PRODUCT_RELEASE_NAME := woods
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Inherit some common PolyOS stuff.
+$(call inherit-product, vendor/poly/config/common_full_phone.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/motorola/woods/device_woods.mk)
@@ -19,7 +19,7 @@ TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := woods
-PRODUCT_NAME := lineage_woods
+PRODUCT_NAME := poly_woods
 PRODUCT_BRAND := Motorola
 PRODUCT_MODEL := Moto E4
 PRODUCT_MANUFACTURER := Motorola
